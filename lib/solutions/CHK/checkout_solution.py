@@ -37,8 +37,12 @@ def multi_buy_discount(product, amount):
     multibuy = MULTIBUY_AMOUNTS[product]
     discounted_price = MULTIBUY_PRICES[product]
     if product == "A":
-        discounted_items = amount // 3
+        five_item_discount_items = amount // 5
+        amount = amount - (five_item_discount_items*5)
+        three_item_discount_items = amount // 3
+        amount = amount - (three_item_discount_items * 3)
+        return (five_item_discount_items * 200) + (three_item_discount_items * 130) + (amount * 50)
     else:
         discounted_items = amount // 2
-    non_discounted_items = amount - (discounted_items * multibuy)
-    return (discounted_items*discounted_price)+(non_discounted_items*PRICING[product])
+        non_discounted_items = amount - (discounted_items * multibuy)
+        return (discounted_items*discounted_price)+(non_discounted_items*PRICING[product])
