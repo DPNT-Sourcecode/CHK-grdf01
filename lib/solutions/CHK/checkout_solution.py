@@ -7,6 +7,7 @@ PRICING = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
 MULTIBUY_AMOUNTS = {"A": 3, "B": 2, "E": 2}
 MULTIBUY_PRICES = {"A": 130, "B": 45}
 
+
 def checkout(skus):
     product_frequency = basket_products(skus)
     return pricing(product_frequency)
@@ -52,6 +53,7 @@ def multi_buy_discount(product, amount):
         discounted_items = amount // 2
         non_discounted_items = amount - (discounted_items * 2)
         return (discounted_items*45)+(non_discounted_items*PRICING[product])
+
 
 
 
