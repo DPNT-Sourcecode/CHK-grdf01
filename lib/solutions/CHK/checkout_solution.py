@@ -3,8 +3,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-PRICING = {"A": 50, "B": 30, "C": 20, "D": 15}
-MULTIBUY_AMOUNTS = {"A": 3, "B": 2}
+PRICING = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
+MULTIBUY_AMOUNTS = {"A": 3, "B": 2, "E": 2}
 MULTIBUY_PRICES = {"A": 130, "B": 45}
 
 
@@ -42,5 +42,6 @@ def multi_buy_discount(product, amount):
         discounted_items = amount // 2
     non_discounted_items = amount - (discounted_items * multibuy)
     return (discounted_items*discounted_price)+(non_discounted_items*PRICING[product])
+
 
 
