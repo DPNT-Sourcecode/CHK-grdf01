@@ -42,6 +42,3 @@ def multi_buy_discount(product, amount):
         discounted_items = amount // 2
     non_discounted_items = amount - (discounted_items * multibuy)
     return (discounted_items*discounted_price)+(non_discounted_items*PRICING[product])
-
-
-
