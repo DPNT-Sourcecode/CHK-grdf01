@@ -22,6 +22,7 @@ def basket_products(skus):
 
 def pricing(items):
     totals = 0
+
     for n in items:
         if n not in PRICING:
             return -1
@@ -31,6 +32,10 @@ def pricing(items):
             totals += PRICING[n] * items[n]
     return totals
 
+
+def free_item_check(items):
+    product_e = items.get("E", None)
+    if not product_e
 
 def multi_buy_discount(product, amount):
     if product == "A":
@@ -43,4 +48,5 @@ def multi_buy_discount(product, amount):
         discounted_items = amount // 2
         non_discounted_items = amount - (discounted_items * 2)
         return (discounted_items*45)+(non_discounted_items*PRICING[product])
+
 
