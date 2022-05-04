@@ -35,8 +35,8 @@ def pricing(items):
 
 
 def free_product_b_check(items):
-    product_e = items.get("E", 0) // 2
-    product_b = items.get("B", 0)
+    product_e = items.get("E") // 2
+    product_b = items.get("B")
     if max(items["E"]-product_b, 0):
         items["B"] = items["B"]-product_e
     return items
@@ -53,3 +53,4 @@ def multi_buy_discount(product, amount):
         discounted_items = amount // 2
         non_discounted_items = amount - (discounted_items * 2)
         return (discounted_items*45)+(non_discounted_items*PRICING[product])
+
