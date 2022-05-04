@@ -10,5 +10,3 @@ BASKET = []
 def checkout(skus):
     return PRICING[skus]
 
-
-
