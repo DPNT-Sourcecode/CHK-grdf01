@@ -9,7 +9,7 @@ MULTIBUY_PRICES = {"A": 130, "B": 45}
 
 
 def checkout(skus):
-    product_frequency = basket_products(skus)
+    product_frequency = basket_products(skus.upper())
     pricing(product_frequency)
     return pricing(product_frequency)
 
