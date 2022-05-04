@@ -26,7 +26,7 @@ def pricing(items):
     for n in items:
         if n not in PRICING:
             return -1
-        elif n == "A" or n == "B":
+        elif n in ["A", "B"]:
             totals += multi_buy_discount(n, items[n])
         else:
             totals += PRICING[n] * items[n]
