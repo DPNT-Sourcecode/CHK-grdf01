@@ -43,19 +43,19 @@ MIX_AND_MATCH = {
 }
 
 
-def checkout(skus):
+def checkout(skus) -> int:
     product_totals = product_frequency(skus)
     return pricing(product_totals, skus)
 
 
-def product_frequency(skus):
+def product_frequency(skus) -> dict:
     freq = {}
     for ch in skus:
             freq[ch] = freq.get(ch, 0) + 1
     return freq
 
 
-def pricing(products, skus):
+def pricing(products, skus) -> int:
     totals = 0
     updated_products = free_product_check(products)
     mix_items = get_mix_and_match_products(skus)
@@ -69,7 +69,7 @@ def pricing(products, skus):
     return totals
 
 
-def free_product_check(items):
+def free_product_check(items) -> dict:
     if "E" in items and "B" in items:
         product_e = items.get("E") // 2
         items["B"] = max(items["B"]-product_e, 0)
@@ -88,7 +88,7 @@ def free_product_check(items):
     return items
 
 
-def quantity_pricing(quantity, value, prod):
+def quantity_pricing(quantity, value, prod) -> int:
     amount = value
     totals = 0
     for n in reversed(quantity):
@@ -99,11 +99,11 @@ def quantity_pricing(quantity, value, prod):
     return totals
 
 
-def get_mix_and_match_products(skus):
+def get_mix_and_match_products(skus) -> list:
     return [n for n in skus if n in ["S", "T", "X", "Y", "Z"]]
 
 
-def mix_and_match_pricing(mix_and_match_list):
+def mix_and_match_pricing(mix_and_match_list) -> int:
     total = 0
     mix_buy = len(mix_and_match_list) // 3
     if mix_buy:
@@ -113,4 +113,5 @@ def mix_and_match_pricing(mix_and_match_list):
         for n in remaining_mix_and_match_products:
             total += MIX_AND_MATCH[n][1]
     return total
+
 
