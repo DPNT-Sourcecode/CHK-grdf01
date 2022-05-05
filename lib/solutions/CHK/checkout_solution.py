@@ -84,5 +84,3 @@ def quantity_pricing(quantity, value, prod):
             amount -= ans * n
             totals += ans*PRODUCTS[prod][n]
     return totals
-
-

@@ -19,4 +19,3 @@ class TestSum():
 
     def test_checkout_five_a_discount(self):
         assert checkout_solution.checkout("FFABCDECBAABCABBAAAEEAAFF") == 695
-
