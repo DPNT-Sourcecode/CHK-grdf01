@@ -96,10 +96,10 @@ def quantity_pricing(quantity, value, prod) -> int:
 
 
 def get_mix_and_match_products(skus) -> list:
-    product_list = [n for n in skus if n in ["S", "T", "X", "Y", "Z"]]
+    product_list = [n for n in skus if n in MIX_AND_MATCH]
     sort_order = {"Z": 1, "S": 2, "T": 3, "Y": 4, "X": 5}
     product_list.sort(key=lambda val: sort_order[val])
-
+    return product_list
 
 
 def mix_and_match_pricing(mix_and_match_list) -> int:
@@ -112,4 +112,5 @@ def mix_and_match_pricing(mix_and_match_list) -> int:
         for n in remaining_mix_and_match_products:
             total += MIX_AND_MATCH[n][1]
     return total
+
 
