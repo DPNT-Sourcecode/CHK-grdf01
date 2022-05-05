@@ -17,5 +17,5 @@ class TestSum():
     def test_checkout_five_a_discount(self):
         assert checkout_solution.checkout("AAAAA") == 200
 
-    def test_checkout_five_a_discount(self):
-        assert checkout_solution.checkout("FFABCDECBAABCABBAAAEEAAFF") == 695
+    def test_mix_and_match_pricing(self):
+        assert checkout_solution.mix_and_match_pricing(["S", "T", "X"]) == 45
