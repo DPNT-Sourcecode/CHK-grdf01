@@ -40,7 +40,7 @@ def free_product_check(items):
         items["B"] = max(items["B"]-product_e, 0)
     if "F" in items:
         product_f = items.get("F") // 2
-        items["F"] = max(items["F"]-product_f, 0)
+        items["F"] += product_f
     return items
 
 
@@ -55,4 +55,5 @@ def multi_buy_discount(product, amount):
         discounted_items = amount // 2
         non_discounted_items = amount - (discounted_items * 2)
         return (discounted_items*45)+(non_discounted_items*PRICING[product])
+
 
