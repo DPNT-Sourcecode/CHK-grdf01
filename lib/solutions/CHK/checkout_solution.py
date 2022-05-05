@@ -47,8 +47,8 @@ def product_frequency(skus):
 
 def pricing(products):
     totals = 0
-    products = free_product_check(products)
-    for product in products:
+    updated_products = free_product_check(products)
+    for product in updated_products:
         if product not in PRODUCTS:
             return -1
         else:
@@ -84,4 +84,5 @@ def quantity_pricing(quantity, value, prod):
             amount -= ans * n
             totals += ans*PRODUCTS[prod][n]
     return totals
+
 
