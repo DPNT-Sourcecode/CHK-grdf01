@@ -12,7 +12,7 @@ PRODUCTS = {
     "H": {1: 10, 5: 45, 10: 80},
     "I": {1: 35},
     "J": {1: 60},
-    "K": {1: 70, 2: 150},
+    "K": {1: 70, 2: 120},
     "L": {1: 90},
     "M": {1: 15},
     "O": {1: 10},
@@ -108,6 +108,7 @@ def mix_and_match_pricing(mix_and_match_list) -> int:
         for n in remaining_mix_and_match_products:
             total += MIX_AND_MATCH[n][1]
     return total
+
 
 
 
