@@ -108,7 +108,3 @@ def mix_and_match_pricing(mix_and_match_list) -> int:
         for n in remaining_mix_and_match_products:
             total += MIX_AND_MATCH[n][1]
     return total
-
-
-
-
