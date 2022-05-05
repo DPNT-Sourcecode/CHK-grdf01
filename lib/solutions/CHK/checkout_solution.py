@@ -50,12 +50,12 @@ def product_frequency(skus) -> dict:
     return freq
 
 
-def pricing(products, skus) -> int:
+def pricing(products, skus):
     totals = 0
     updated_products = free_product_check(products)
     mix_items = get_mix_and_match_products(skus)
     for product in updated_products:
-        if product not in PRODUCTS:
+        if product not in PRODUCTS | MIX_AND_MATCH:
             return -1
         elif product in PRODUCTS:
             totals += quantity_pricing(PRODUCTS[product].keys(), products[product], product)
@@ -108,4 +108,5 @@ def mix_and_match_pricing(mix_and_match_list) -> int:
         for n in remaining_mix_and_match_products:
             total += MIX_AND_MATCH[n][1]
     return total
+
 
