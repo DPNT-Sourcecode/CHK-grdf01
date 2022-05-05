@@ -12,19 +12,14 @@ PRODUCTS = {
     "H": {1: 10, 5: 45, 10: 80},
     "I": {1: 35},
     "J": {1: 60},
-    "K": {1: 80, 2: 150},
+    "K": {1: 70, 2: 150},
     "L": {1: 90},
     "M": {1: 15},
     "O": {1: 10},
     "P": {1: 50, 5: 200},
     "Q": {1: 30, 3: 80},
-    "S": {1: 30},
-    "T": {1: 20},
     "V": {1: 50, 2: 90, 3: 130},
     "W": {1: 20},
-    "X": {1: 90},
-    "Y": {1: 10},
-    "Z": {1: 50},
     "E": {1: 40},  # 2E get one B free
     "F": {1: 10},  # 2F get one F free
     "N": {1: 40},  # 3N get one M free
@@ -113,3 +108,4 @@ def mix_and_match_pricing(mix_and_match_list) -> int:
         for n in remaining_mix_and_match_products:
             total += MIX_AND_MATCH[n][1]
     return total
+
