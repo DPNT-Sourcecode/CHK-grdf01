@@ -32,10 +32,20 @@ PRODUCTS = {
     "U": {1: 40},  # 3U get one U free
 }
 
+# buy any 3 of (S,T,X,Y,Z) for 45
+MIX_AND_MATCH = {
+    "S": {1: 20},
+    "T": {1: 20},
+    "X": {1: 17},
+    "Y": {1: 20},
+    "Z": {1: 21},
+    "multi_price": 45
+}
+
 
 def checkout(skus):
     product_totals = product_frequency(skus)
-    return pricing(product_totals)
+    return pricing(product_totals, skus)
 
 
 def product_frequency(skus):
@@ -45,14 +55,17 @@ def product_frequency(skus):
     return freq
 
 
-def pricing(products):
+def pricing(products, skus):
     totals = 0
     updated_products = free_product_check(products)
+    mix_items = get_mix_and_match_products(skus)
     for product in updated_products:
         if product not in PRODUCTS:
             return -1
-        else:
+        elif product in PRODUCTS:
             totals += quantity_pricing(PRODUCTS[product].keys(), products[product], product)
+        else:
+            totals += mix_and_match_pricing(mix_items)
     return totals
 
 
@@ -84,3 +97,20 @@ def quantity_pricing(quantity, value, prod):
             amount -= ans * n
             totals += ans*PRODUCTS[prod][n]
     return totals
+
+
+def get_mix_and_match_products(skus):
+    return [n for n in skus if n in ["S", "T", "X", "Y", "Z"]]
+
+
+def mix_and_match_pricing(mix_and_match_list):
+    total = 0
+    mix_buy = len(mix_and_match_list) // 3
+    if mix_buy:
+        total += mix_buy*MIX_AND_MATCH["multi_price"]
+    remaining_mix_and_match_products = mix_and_match_list[mix_buy*3:]
+    if remaining_mix_and_match_products:
+        for n in remaining_mix_and_match_products:
+            total += MIX_AND_MATCH[n][1]
+    return total
+
